@@ -49,12 +49,13 @@ spec:
         - containerPort: 3306
           name: mysql
         volumeMounts:
-        - name: mysql-persistent-storage
+        - name: mysql-persistent-storage-mysql-0
           mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
-      name: mysql-persistent-storage
+      name: mysql-persistent-storage-mysql-0
     spec:
+      storageClassName: gp2
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
